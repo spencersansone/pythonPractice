@@ -19,34 +19,40 @@ def result(userChoice,computerChoice):
         else:
             return "User wins!"
 
-b = True
-choicesArray = ["R","P","S"]
+keepGoing = True
 
-#ask user: rock paper scissors?
-
-userChoice = input("Rock (R), paper (P) or scissors (S)?:").upper()
-
-while(b):
-    if userChoice.upper() not in choicesArray:
-        userChoice = input("Please try again. Rock (R), paper (P) or scissors (S)?:")
-    else:
-       b = False
-
-computerChoice = choicesArray[randint(0,2)]
-
-result_string = result(userChoice,computerChoice)
-
-print("""
-User: {}
-Computer: {}
-Result: {}
-""".format(userChoice.upper(),computerChoice,result_string))
-
+while(keepGoing):
+    b = True
+    choicesArray = ["R","P","S"]
 
     
 
-#have computer pick rock paper or scissors
+    while(b):
+        userChoice = input("Rock, paper or scissors? (R/P/S):").upper()
+        if userChoice.upper() not in choicesArray:
+            print("Please try again")
+        else:
+           break
 
-#determine who wins or if there is a draw
+    computerChoice = choicesArray[randint(0,2)]
 
-#print result (Rock vs Paper: User wins!)
+    r_string = result(userChoice,computerChoice)
+
+    print("""
+    User: {}
+    Computer: {}
+    Result: {}
+    """.format(userChoice.upper(),computerChoice,r_string))
+
+    while(True):
+        playAgain = input("Would you like to play again? (y/n):")
+        if playAgain == "n":
+            keepGoing = False
+            break
+        elif playAgain == "y":
+            break
+        else:
+            print("Please try again")
+        
+            
+        
