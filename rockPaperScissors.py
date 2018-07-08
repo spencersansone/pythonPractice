@@ -1,4 +1,4 @@
-from random import randint
+from random import choice
 
 def result(userChoice,computerChoice):
     if userChoice == computerChoice:
@@ -30,7 +30,7 @@ while(keepGoing):
         else:
            break
 
-    computerChoice = choicesArray[randint(0,2)]
+    computerChoice = choice(choicesArray)
     r_string = result(userChoice,computerChoice)
 
     print("""
